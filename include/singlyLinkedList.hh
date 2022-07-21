@@ -26,8 +26,10 @@ namespace ds_cpp
         T &front();
         void insert(const T &val, int index);
         void insert(const T &val, const node* pos);
+        void insertAfter(const T &val, const node* pos);
         void erase(int index);
         void erase(const node* pos);
+        void eraseAfter(const node* pos);
         void clear();
         void print();
         void reverse();
