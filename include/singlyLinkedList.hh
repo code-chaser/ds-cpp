@@ -151,14 +151,22 @@ namespace ds_cpp
                 throw std::runtime_error("cannot pop from an empty list");
             }
             T val = this->tail->val;
-            node *curr = this->head;
-            while (curr->next != this->tail)
+            if (this->head == this->tail)
             {
-                curr = curr->next;
+                this->head = nullptr;
+                this->tail = nullptr;
             }
-            delete this->tail;
-            this->tail = curr;
-            this->tail->next = nullptr;
+            else
+            {
+                node *curr = this->head;
+                while (curr->next != this->tail)
+                {
+                    curr = curr->next;
+                }
+                delete this->tail;
+                this->tail = curr;
+                this->tail->next = nullptr;
+            }
             this->sizeOfList--;
             return val;
         }
@@ -172,6 +180,10 @@ namespace ds_cpp
             T val = this->head->val;
             node *curr = this->head;
             this->head = this->head->next;
+            if (this->head == nullptr)
+            {
+                this->tail = nullptr;
+            }
             delete curr;
             this->sizeOfList--;
             return val;
@@ -273,6 +285,10 @@ namespace ds_cpp
                 node *temp = this->head->next;
                 delete this->head;
                 this->head = temp;
+                if (this->head == nullptr)
+                {
+                    this->tail = nullptr;
+                }
             }
             else
             {
@@ -284,6 +300,10 @@ namespace ds_cpp
                 node *temp = curr->next->next;
                 delete curr->next;
                 curr->next = temp;
+                if (curr->next == nullptr)
+                {
+                    this->tail = curr;
+                }
             }
             this->sizeOfList--;
             return;
@@ -311,7 +331,6 @@ namespace ds_cpp
             {
                 nodeOneAfterEnd = nodeOneAfterEnd->next;
             }
-            this->tail = nodeOneBeforeStart;
             if (nodeOneBeforeStart == nullptr)
             {
                 curr = this->head;
@@ -322,6 +341,10 @@ namespace ds_cpp
                     curr = temp;
                 }
                 this->head = nodeOneAfterEnd;
+                if (this->head == nullptr)
+                {
+                    this->tail = nullptr;
+                }
             }
             else
             {
@@ -333,6 +356,10 @@ namespace ds_cpp
                     curr = temp;
                 }
                 nodeOneBeforeStart->next = nodeOneAfterEnd;
+                if (nodeOneAfterEnd == nullptr)
+                {
+                    this->tail = nodeOneBeforeStart;
+                }
             }
             this->sizeOfList -= (end - start + 1);
             return;
