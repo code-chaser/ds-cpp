@@ -147,6 +147,7 @@ void listOperations(ds_cpp::singlyLinkedList<T> &list)
         {
             std::cout << "Enter the size of reference list: ";
             int size;
+            std::cin >> size;
             ds_cpp::singlyLinkedList<T> referencelist(size);
             std::cout << "Enter the elements of the reference list: ";
             for (int i = 0; i < size; i++)
