@@ -24,7 +24,9 @@ namespace ds_cpp
         T pop_back();
         T pop_front();
         T &back();
+        const T &back() const;
         T &front();
+        const T &front() const;
         void insert(const T &);
         void insert(const T &, int);
         void erase();
@@ -32,9 +34,10 @@ namespace ds_cpp
         void erase(int, int);
         void clear();
         void reverse();
-        int size();
-        bool empty();
+        int size() const;
+        bool empty() const;
         T &operator[](int);
+        const T &operator[](int) const;
         singlyLinkedList<T> &operator=(const singlyLinkedList<T> &);
         bool operator==(const singlyLinkedList<T> &);
         bool operator!=(const singlyLinkedList<T> &);
@@ -183,7 +186,25 @@ namespace ds_cpp
             return this->tail->val;
         }
 
+        const T &back() const
+        {
+            if (this->tail == nullptr)
+            {
+                throw std::runtime_error("list is empty");
+            }
+            return this->tail->val;
+        }
+
         T &front()
+        {
+            if (this->head == nullptr)
+            {
+                throw std::runtime_error("list is empty");
+            }
+            return this->head->val;
+        }
+
+        const T &front() const
         {
             if (this->head == nullptr)
             {
@@ -339,7 +360,7 @@ namespace ds_cpp
             return;
         }
 
-        int size()
+        int size() const
         {
             return this->sizeOfList;
         }
@@ -350,6 +371,20 @@ namespace ds_cpp
         }
 
         T &operator[](int index)
+        {
+            if (index < 0 || index >= this->size())
+            {
+                throw std::runtime_error("list index out of bounds");
+            }
+            node *curr = this->head;
+            for (int i = 0; i < index; i++)
+            {
+                curr = curr->next;
+            }
+            return curr->val;
+        }
+        
+        const T &operator[](int index) const
         {
             if (index < 0 || index >= this->size())
             {

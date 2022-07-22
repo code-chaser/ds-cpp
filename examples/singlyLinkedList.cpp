@@ -9,7 +9,7 @@ void listOperations(ds_cpp::singlyLinkedList<T> &list)
     for (int i = 0; i < list.size(); i++)
         std::cout << list[i] << (i == list.size() - 1 ? " ]" : ", ");
     std::cout << "\n\n";
-    std::cout << "Select an operation: ";
+    std::cout << "Select an operation:\n";
     std::cout << "00. [Go Back]\n";
     std::cout << "01. Push Back\n";
     std::cout << "02. Push Front\n";
