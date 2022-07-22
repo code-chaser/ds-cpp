@@ -7,8 +7,9 @@ void listOperations(ds_cpp::singlyLinkedList<T> &list)
 {
     std::cout << "\nCurrent List: [ ";
     for (int i = 0; i < list.size(); i++)
-        std::cout << list[i] << (i == list.size() - 1 ? " ]" : ", ");
-    std::cout << "\n\n";
+        std::cout << list[i] << (i == list.size() - 1 ? "" : ", ");
+    std::cout << " ]\n";
+    std::cout << "\n";
     std::cout << "Select an operation:\n";
     std::cout << "00. [Go Back]\n";
     std::cout << "01. Push Back\n";
