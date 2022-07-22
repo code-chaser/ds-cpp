@@ -170,8 +170,8 @@ void listOperations(ds_cpp::singlyLinkedList<T> &list)
                 std::cout << "\n";
                 std::cout << "Current List: [ ";
                 for (int i = 0; i < list.size(); i++)
-                    std::cout << list[i] << (i == list.size() - 1 ? " ]" : ", ");
-                std::cout << "Concatenating...\n";
+                    std::cout << list[i] << (i == list.size() - 1 ? "" : ", ");
+                std::cout << " ]\nConcatenating...\n";
                 list += referencelist;
             }
             listOperations(list);
