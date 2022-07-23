@@ -29,6 +29,7 @@ ___
 - Now, run the following commands:
 ```bash
   make singlyLinkedList # for singly liked list testing;
+  
   make doublyLinkedList # for doubly liked list testing;
 ```
 ___
