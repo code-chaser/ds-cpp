@@ -1,3 +1,3 @@
-singlyLinkedList: ./examples/singlyLinkedList.cpp
-	g++ -o "./build/singlyLinkedList" ./examples/singlyLinkedList.cpp
+singlyLinkedList: ./src/singlyLinkedList.cpp
+	g++ -o "./build/singlyLinkedList" ./src/singlyLinkedList.cpp
 	./build/singlyLinkedList
