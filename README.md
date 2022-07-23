@@ -29,7 +29,7 @@ ___
 - Now, run the following commands:
    - for building executable file: 
   ```bash
-     make singlyLinkedList # for running liked list example
+     make singlyLinkedList # for singly liked list testing;
   ```
 ___
 
