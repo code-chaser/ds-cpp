@@ -58,3 +58,20 @@ int main()
 
     return 0;
 }
+
+/*
+
+OUTPUT:
+
+
+Hello World!
+
+Hello World! This is a Singly Linked List of Strings!
+
+Follwing is a Singly Linked List of pair<int, vector<int>>:
+1: 1
+2: 2 3
+3: 4 5 6
+
+
+*/
