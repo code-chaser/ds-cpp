@@ -27,10 +27,10 @@ ___
    - if not, then run the following command: ` sudo apt-get install make `
    <br>
 - Now, run the following commands:
-   - for building executable file: 
-  ```bash
-     make singlyLinkedList # for singly liked list testing;
-  ```
+```bash
+  make singlyLinkedList # for singly liked list testing;
+  make doublyLinkedList # for doubly liked list testing;
+```
 ___
 
 </br>
