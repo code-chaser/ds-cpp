@@ -9,6 +9,7 @@ Class templates made by me for different data structures in C++.
 
 ___
 
+
 - [x] Singly Linked List
 - [ ] Doubly Linked List
 - [ ] Binary Search Tree
