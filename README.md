@@ -6,6 +6,7 @@
 ### INTRODUCTION
 
 Class templates made by me for different data structures in C++.
+- Want to Contribute? Please see [this](https://github.com/code-chaser/ds-cpp/blob/main/CONTRIBUTING.md).
 
 ___
 
