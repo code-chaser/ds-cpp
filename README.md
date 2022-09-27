@@ -15,6 +15,7 @@ ___
 - [ ] Doubly Linked List
 - [ ] Binary Search Tree
 - [ ] Max Heap / Min Heap
+- [ ] Segment Tree
 - [ ] Misc
 
 ___
