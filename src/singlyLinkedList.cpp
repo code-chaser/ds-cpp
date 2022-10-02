@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "./../header/SinglyLinkedList.hh"
+#include "./../header/singlyLinkedList.hh"
 
 template <class T>
 void listOperations(ds_cpp::singlyLinkedList<T> &list)
