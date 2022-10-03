@@ -369,10 +369,13 @@ namespace ds_cpp
                 {
                     this->tail = nullptr;
                 }
+                else
+                {
+                    this->head->prev = nullptr;
+                }
             }
             else
-            {
-                curr = nodeOneBeforeStart->next;
+            {             
                 while (curr != nodeOneAfterEnd)
                 {
                     node *temp = curr->next;
@@ -383,6 +386,10 @@ namespace ds_cpp
                 if (nodeOneAfterEnd == nullptr)
                 {
                     this->tail = nodeOneBeforeStart;
+                }
+                else
+                {
+                    nodeOneAfterEnd->prev = nodeOneBeforeStart;
                 }
             }
             this->sizeOfList -= (end - start + 1);
@@ -397,7 +404,19 @@ namespace ds_cpp
 
         void reverse()
         {
-
+            node *prev = nullptr;
+            node *curr = this->head;
+            while (curr != nullptr)
+            {
+                node *temp = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr->prev = curr->next;
+                curr = temp;
+            }
+            this->tail = this->head;
+            this->head = prev;
+            return;
         }
 
         int size() const
@@ -408,6 +427,98 @@ namespace ds_cpp
         bool empty()
         {
             return this->sizeOfList == 0;
+        }
+
+        T &operator[](int index)
+        {
+            if (index < 0 || index >= this->size())
+            {
+                throw std::runtime_error("list index out of bounds");
+            }
+            node *curr = this->head;
+            for (int i = 0; i < index; i++)
+            {
+                curr = curr->next;
+            }
+            return curr->val;
+        }
+
+        const T &operator[](int index) const
+        {
+            if (index < 0 || index >= this->size())
+            {
+                throw std::runtime_error("list index out of bounds");
+            }
+            node *curr = this->head;
+            for (int i = 0; i < index; i++)
+            {
+                curr = curr->next;
+            }
+            return curr->val;
+        }
+
+        ds_cpp::doublyLinkedList<T> &operator=(const doublyLinkedList<T> &rhs)
+        {
+            if (this == &rhs)
+            {
+                return *this;
+            }
+            this->clear();
+            node *curr = rhs.head;
+            while (curr != nullptr)
+            {
+                this->push_back(curr->val);
+                curr = curr->next;
+            }
+            return *this;
+        }
+
+        bool operator==(const doublyLinkedList<T> &rhs)
+        {
+            if (this->size() != rhs.size())
+            {
+                return false;
+            }
+            node *curr = this->head;
+            node *rhsCurr = rhs.head;
+            while (curr != nullptr)
+            {
+                if (curr->val != rhsCurr->val)
+                {
+                    return false;
+                }
+                curr = curr->next;
+                rhsCurr = rhsCurr->next;
+            }
+            return true;
+        }
+
+        bool operator!=(const doublyLinkedList<T> &rhs)
+        {
+            return !(*this == rhs);
+        }
+
+        ds_cpp::doublyLinkedList<T> operator+(const doublyLinkedList<T> &rhs)
+        {
+            doublyLinkedList<T> *newList = new doublyLinkedList<T>(*this);
+            node *curr = rhs.head;
+            while (curr != nullptr)
+            {
+                newList->push_back(curr->val);
+                curr = curr->next;
+            }
+            return *newList;
+        }
+
+        ds_cpp::doublyLinkedList<T> operator+=(const doublyLinkedList<T> &rhs)
+        {
+            node *curr = rhs.head;
+            while (curr != nullptr)
+            {
+                this->push_back(curr->val);
+                curr = curr->next;
+            }
+            return *this;
         }
 
         ~doublyLinkedList()
